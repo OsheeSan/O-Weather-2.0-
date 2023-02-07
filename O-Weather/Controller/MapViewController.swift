@@ -30,6 +30,7 @@ class MapViewController: UIViewController {
         blurredEffectView.frame = view.bounds
         blurredEffectView.alpha = 0
         mapView.addSubview(blurredEffectView)
+        navigationController?.isNavigationBarHidden = true
     }
     
     @objc func hideCities(_ sender: UITapGestureRecognizer){

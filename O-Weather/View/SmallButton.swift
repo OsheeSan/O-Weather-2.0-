@@ -21,6 +21,6 @@ class SmallButton: UIButton {
     func configure(){
         clipsToBounds = true
         layer.cornerRadius = frame.width/2
-        backgroundColor = .darkGray
+        backgroundColor = .black
     }
 }

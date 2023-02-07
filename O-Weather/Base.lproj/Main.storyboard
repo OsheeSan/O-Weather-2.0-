@@ -130,7 +130,7 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxV-Wk-fuc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYz-sU-dVn" customClass="SearchView" customModule="O_Weather" customModuleProvider="target">
@@ -303,6 +303,14 @@
             <point key="canvasLocation" x="946.875" y="-472.18309859154931"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="VhQ-nU-5jW">
+            <size key="intrinsicContentSize" width="19" height="22"/>
+        </designable>
+        <designable name="nre-9P-E07">
+            <size key="intrinsicContentSize" width="21.5" height="22"/>
+        </designable>
+    </designables>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
@@ -310,9 +318,6 @@
         <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
