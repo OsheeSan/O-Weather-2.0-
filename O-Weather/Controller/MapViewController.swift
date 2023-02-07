@@ -14,8 +14,9 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var SearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var CitiesTableView: CitiesTableView!
+    
+    let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     var locations = [Location]()
     
@@ -25,11 +26,16 @@ class MapViewController: UIViewController {
             overrideUserInterfaceStyle = .dark
         }
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideCities)))
+        mapView.mapType = .hybridFlyover
+        blurredEffectView.frame = view.bounds
+        blurredEffectView.alpha = 0
+        mapView.addSubview(blurredEffectView)
     }
     
     @objc func hideCities(_ sender: UITapGestureRecognizer){
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, animations: {
             self.CitiesTableView?.alpha = 0
+            self.blurredEffectView.alpha = 0
         })
         SearchBar.endEditing(true)
     }
@@ -40,6 +46,7 @@ class MapViewController: UIViewController {
         if CitiesTableView?.alpha != 1{
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, animations: {
                 self.CitiesTableView?.alpha = 1
+                self.blurredEffectView.alpha = 1
             })
         }
     }

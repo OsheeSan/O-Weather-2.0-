@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="947" y="293"/>
         </scene>
-        <!--Map-->
+        <!--Map View Controller-->
         <scene sceneID="FQn-1c-CsG">
             <objects>
                 <viewController id="Cw2-ag-ufj" customClass="MapViewController" customModule="O_Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYz-sU-dVn" customClass="SearchView" customModule="O_Weather" customModuleProvider="target">
-                                <rect key="frame" x="16" y="30" width="288" height="60"/>
+                                <rect key="frame" x="16" y="44" width="288" height="60"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Find a city" translatesAutoresizingMaskIntoConstraints="NO" id="De7-Gt-8j3">
                                         <rect key="frame" x="0.0" y="8" width="288" height="44"/>
@@ -153,21 +153,21 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sH4-Yy-6RH" customClass="CitiesTableView" customModule="O_Weather" customModuleProvider="target">
-                                <rect key="frame" x="40" y="130" width="240" height="110"/>
+                                <rect key="frame" x="40" y="144" width="240" height="110"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="Woi-6b-N5m"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="eKT-lV-3na">
-                                        <rect key="frame" x="0.0" y="50" width="240" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="240" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eKT-lV-3na" id="94P-St-QQf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLO-l0-TFM">
-                                                    <rect key="frame" x="16" y="11" width="208" height="21.5"/>
+                                                    <rect key="frame" x="16" y="11" width="208" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,14 +182,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noCell" id="4Ua-Fa-VsI">
-                                        <rect key="frame" x="0.0" y="93.5" width="240" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="93" width="240" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ua-Fa-VsI" id="85E-g3-nbU">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No places found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5W-Ug-nQo">
-                                                    <rect key="frame" x="16" y="11" width="208" height="21.5"/>
+                                                    <rect key="frame" x="16" y="11" width="208" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -213,9 +213,9 @@
                         <viewLayoutGuide key="safeArea" id="fdG-eK-0je"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YYz-sU-dVn" firstAttribute="top" secondItem="fdG-eK-0je" secondAttribute="top" constant="30" id="5JQ-GH-jdG"/>
                             <constraint firstAttribute="bottom" secondItem="zxV-Wk-fuc" secondAttribute="bottom" id="6qE-Xf-vIv"/>
                             <constraint firstItem="sH4-Yy-6RH" firstAttribute="leading" secondItem="fdG-eK-0je" secondAttribute="leading" constant="40" id="Hcn-Cp-uQp"/>
+                            <constraint firstItem="YYz-sU-dVn" firstAttribute="top" secondItem="fdG-eK-0je" secondAttribute="top" id="Ijw-hj-Nvy"/>
                             <constraint firstItem="sH4-Yy-6RH" firstAttribute="top" secondItem="YYz-sU-dVn" secondAttribute="bottom" constant="40" id="KZv-Si-pCK"/>
                             <constraint firstItem="fdG-eK-0je" firstAttribute="trailing" secondItem="sH4-Yy-6RH" secondAttribute="trailing" constant="40" id="Pxm-Ok-G0o"/>
                             <constraint firstItem="zxV-Wk-fuc" firstAttribute="leading" secondItem="fdG-eK-0je" secondAttribute="leading" id="UwY-72-kY9"/>
@@ -225,7 +225,6 @@
                             <constraint firstItem="zxV-Wk-fuc" firstAttribute="trailing" secondItem="fdG-eK-0je" secondAttribute="trailing" id="s8W-uG-MXi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="ZfU-rB-7hW"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="mpS-c1-bFh"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -237,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRy-HP-WjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="946.875" y="-472.18309859154931"/>
+            <point key="canvasLocation" x="1944.375" y="-472.18309859154931"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="rvD-EF-Z7P">
@@ -253,12 +252,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="Gsu-Lc-NMg" kind="relationship" relationship="viewControllers" id="BzC-kG-4cF"/>
-                        <segue destination="Cw2-ag-ufj" kind="relationship" relationship="viewControllers" id="l9e-6M-dzg"/>
+                        <segue destination="19b-dq-XC7" kind="relationship" relationship="viewControllers" id="l9e-6M-dzg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9U-4d-xHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-234.375" y="-241.90140845070422"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="eiy-6Y-jrI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="19b-dq-XC7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="ZfU-rB-7hW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I3y-wc-BUR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Cw2-ag-ufj" kind="relationship" relationship="rootViewController" id="awi-1d-g1R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M9M-B2-QNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946.875" y="-472.18309859154931"/>
         </scene>
     </scenes>
     <resources>
