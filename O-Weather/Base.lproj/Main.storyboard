@@ -160,14 +160,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="eKT-lV-3na">
-                                        <rect key="frame" x="0.0" y="50" width="240" height="43"/>
+                                        <rect key="frame" x="0.0" y="50" width="240" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eKT-lV-3na" id="94P-St-QQf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLO-l0-TFM">
-                                                    <rect key="frame" x="16" y="11" width="208" height="21"/>
+                                                    <rect key="frame" x="16" y="11" width="208" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,14 +182,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noCell" id="4Ua-Fa-VsI">
-                                        <rect key="frame" x="0.0" y="93" width="240" height="43"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="240" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ua-Fa-VsI" id="85E-g3-nbU">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No places found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5W-Ug-nQo">
-                                                    <rect key="frame" x="16" y="11" width="208" height="21"/>
+                                                    <rect key="frame" x="16" y="11" width="208" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -209,6 +209,26 @@
                                     <outlet property="delegate" destination="Cw2-ag-ufj" id="Wto-bV-IP7"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhQ-nU-5jW" userLabel="My Location" customClass="SmallButton" customModule="O_Weather" customModuleProvider="target">
+                                <rect key="frame" x="274" y="112" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="bpG-10-C2n"/>
+                                    <constraint firstAttribute="height" constant="30" id="lE4-HZ-Z5o"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="person" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nre-9P-E07" userLabel="Map Type" customClass="SmallButton" customModule="O_Weather" customModuleProvider="target">
+                                <rect key="frame" x="16" y="112" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8dN-IF-1kj"/>
+                                    <constraint firstAttribute="width" constant="30" id="FjE-YD-L2m"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="map" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fdG-eK-0je"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -218,11 +238,15 @@
                             <constraint firstItem="YYz-sU-dVn" firstAttribute="top" secondItem="fdG-eK-0je" secondAttribute="top" id="Ijw-hj-Nvy"/>
                             <constraint firstItem="sH4-Yy-6RH" firstAttribute="top" secondItem="YYz-sU-dVn" secondAttribute="bottom" constant="40" id="KZv-Si-pCK"/>
                             <constraint firstItem="fdG-eK-0je" firstAttribute="trailing" secondItem="sH4-Yy-6RH" secondAttribute="trailing" constant="40" id="Pxm-Ok-G0o"/>
+                            <constraint firstItem="nre-9P-E07" firstAttribute="leading" secondItem="fdG-eK-0je" secondAttribute="leading" constant="16" id="TKz-da-18N"/>
+                            <constraint firstItem="VhQ-nU-5jW" firstAttribute="top" secondItem="YYz-sU-dVn" secondAttribute="bottom" constant="8" symbolic="YES" id="Tha-Li-qmj"/>
                             <constraint firstItem="zxV-Wk-fuc" firstAttribute="leading" secondItem="fdG-eK-0je" secondAttribute="leading" id="UwY-72-kY9"/>
                             <constraint firstItem="zxV-Wk-fuc" firstAttribute="top" secondItem="xSJ-Yy-3ZI" secondAttribute="top" id="anY-9S-7ax"/>
                             <constraint firstItem="fdG-eK-0je" firstAttribute="trailing" secondItem="YYz-sU-dVn" secondAttribute="trailing" constant="16" id="buf-bF-Pz6"/>
                             <constraint firstItem="YYz-sU-dVn" firstAttribute="leading" secondItem="fdG-eK-0je" secondAttribute="leading" constant="16" id="ewi-hI-q4T"/>
+                            <constraint firstItem="nre-9P-E07" firstAttribute="top" secondItem="YYz-sU-dVn" secondAttribute="bottom" constant="8" symbolic="YES" id="kHv-v2-Niy"/>
                             <constraint firstItem="zxV-Wk-fuc" firstAttribute="trailing" secondItem="fdG-eK-0je" secondAttribute="trailing" id="s8W-uG-MXi"/>
+                            <constraint firstItem="fdG-eK-0je" firstAttribute="trailing" secondItem="VhQ-nU-5jW" secondAttribute="trailing" constant="16" id="xrA-5r-GbQ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -283,6 +307,7 @@
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
