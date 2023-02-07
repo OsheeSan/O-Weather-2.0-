@@ -16,6 +16,10 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var CitiesTableView: CitiesTableView!
     
+    @IBOutlet weak var MyLocationButton: SmallButton!
+    @IBOutlet weak var MapTypeButton: SmallButton!
+    
+    
     let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     var locations = [Location]()
@@ -36,7 +40,10 @@ class MapViewController: UIViewController {
     @objc func hideCities(_ sender: UITapGestureRecognizer){
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, animations: {
             self.CitiesTableView?.alpha = 0
+            self.CitiesTableView.transform = CGAffineTransform(translationX: 0, y: 20)
             self.blurredEffectView.alpha = 0
+            self.MapTypeButton.alpha = 1
+            self.MyLocationButton.alpha = 1
         })
         SearchBar.endEditing(true)
     }
@@ -45,9 +52,13 @@ class MapViewController: UIViewController {
     
     func showCities(){
         if CitiesTableView?.alpha != 1{
+            self.CitiesTableView.transform = CGAffineTransform(translationX: 0, y: 20)
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, animations: {
                 self.CitiesTableView?.alpha = 1
                 self.blurredEffectView.alpha = 1
+                self.CitiesTableView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.MapTypeButton.alpha = 0
+                self.MyLocationButton.alpha = 0
             })
         }
     }
