@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -337,6 +338,9 @@
                                 <color key="tintColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="person" catalog="system"/>
+                                <state key="highlighted">
+                                    <imageReference key="image" image="person.fill" catalog="system" symbolScale="medium"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nre-9P-E07" userLabel="Map Type" customClass="SmallButton" customModule="O_Weather" customModuleProvider="target">
                                 <rect key="frame" x="16" y="112" width="30" height="30"/>
@@ -347,6 +351,10 @@
                                 <color key="tintColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="map" catalog="system"/>
+                                <state key="highlighted">
+                                    <color key="titleShadowColor" red="1" green="0.93591099560000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <imageReference key="image" image="map.fill" catalog="system" symbolScale="medium"/>
+                                </state>
                                 <connections>
                                     <action selector="MapTypeTouched:" destination="Cw2-ag-ufj" eventType="touchUpInside" id="bMS-aP-44o"/>
                                     <segue destination="MBm-WD-KwK" kind="showDetail" identifier="mapType" id="PXa-iu-NUD"/>
@@ -440,7 +448,9 @@
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
