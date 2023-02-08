@@ -15,6 +15,10 @@ class MapViewController: UIViewController {
     var isGlobe = false
     var isRealistic = false
     
+    var location = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    
+    let Manager = CLLocationManager()
+    
     @IBOutlet weak var SearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var CitiesTableView: CitiesTableView!
@@ -48,7 +52,12 @@ class MapViewController: UIViewController {
         }
     }
     
-    @IBAction func MapTypeTouched(_ sender: Any) {
+    @IBAction func MapTypeTouched(_ sender: SmallButton) {
+    }
+    
+    
+    @IBAction func MyLocationTouched(_ sender: SmallButton) {
+        findMyLocation()
     }
     
     @objc func hideCities(_ sender: UITapGestureRecognizer){
@@ -157,4 +166,34 @@ extension UITableView {
         self.backgroundView = nil
         self.separatorStyle = .singleLine
     }
+}
+
+extension MapViewController: CLLocationManagerDelegate{
+    
+    func findMyLocation(){
+        Manager.requestWhenInUseAuthorization()
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.Manager.delegate = self
+                self.Manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                self.Manager.startUpdatingLocation()
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        location = locValue
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        Manager.stopUpdatingLocation()
+        let previousAnnotations = self.mapView.annotations
+        if !previousAnnotations.isEmpty{
+          self.mapView.removeAnnotation(previousAnnotations[0])
+        }
+        let pin = MKPointAnnotation()
+        pin.coordinate = location
+        mapView.addAnnotation(pin)
+        mapView.setRegion(MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)), animated: true)
+    }
+
 }

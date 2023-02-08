@@ -341,6 +341,9 @@
                                 <state key="highlighted">
                                     <imageReference key="image" image="person.fill" catalog="system" symbolScale="medium"/>
                                 </state>
+                                <connections>
+                                    <action selector="MyLocationTouched:" destination="Cw2-ag-ufj" eventType="touchUpInside" id="igs-fq-8iO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nre-9P-E07" userLabel="Map Type" customClass="SmallButton" customModule="O_Weather" customModuleProvider="target">
                                 <rect key="frame" x="16" y="112" width="30" height="30"/>
