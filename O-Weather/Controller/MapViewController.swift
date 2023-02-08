@@ -11,6 +11,9 @@ import CoreLocation
 
 class MapViewController: UIViewController {
 
+    //MARK: - MapView
+    var isGlobe = false
+    var isRealistic = false
     
     @IBOutlet weak var SearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -30,11 +33,22 @@ class MapViewController: UIViewController {
             overrideUserInterfaceStyle = .dark
         }
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideCities)))
-        mapView.mapType = .hybridFlyover
         blurredEffectView.frame = view.bounds
         blurredEffectView.alpha = 0
         mapView.addSubview(blurredEffectView)
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapType"{
+            let controller = segue.destination as! MapTypeViewController
+            controller.delegate = self
+            controller.isGlobe = self.isGlobe
+            controller.isRealistic = self.isRealistic
+        }
+    }
+    
+    @IBAction func MapTypeTouched(_ sender: Any) {
     }
     
     @objc func hideCities(_ sender: UITapGestureRecognizer){
