@@ -19,6 +19,8 @@ class MapViewController: UIViewController {
     
     let Manager = CLLocationManager()
     
+    var cityInfoRow = 0
+    
     @IBOutlet weak var SearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var CitiesTableView: CitiesTableView!
@@ -97,12 +99,14 @@ extension MapViewController: UISearchBarDelegate {
                 DispatchQueue.main.async {
                     self?.locations = locations
                     self?.CitiesTableView.reloadData()
+                    self?.cityInfoRow = 0
                 }
             }
         } else {
             self.locations = [Location]()
         }
         CitiesTableView.reloadData()
+        cityInfoRow = 0
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -115,35 +119,96 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if locations.count == 0 {
                 tableView.setMessage("No results")
+                return 0
             } else {
                 tableView.clearBackground()
             }
-        return locations.count
+        return locations[0].rows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        let label = cell.viewWithTag(1) as! UILabel
-        label.text = locations[indexPath.row].title
-        label.numberOfLines = 0
+        let Row = cell.viewWithTag(1) as! UILabel
+        Row.numberOfLines = 0
+        Row.text = ""
+        let infoLabel = cell.viewWithTag(2) as! UILabel
+        infoLabel.numberOfLines = 0
+        infoLabel.text = ""
+        if cityInfoRow == 0 {
+            if let city = locations[0].city{
+                Row.text = "City"
+                infoLabel.text = city
+                cityInfoRow+=1;
+                return cell
+            } else {
+                cityInfoRow+=1;
+            }
+        }
+        if cityInfoRow == 1 {
+            if let subAdminRegion = locations[0].subAdminRegion{
+                Row.text = "SubAdmin Region"
+                infoLabel.text = subAdminRegion
+                cityInfoRow+=1;
+                return cell
+            } else {
+                cityInfoRow+=1;
+            }
+        }
+        if cityInfoRow == 2 {
+            if let adminRegion = locations[0].adminRegion{
+                Row.text = "Admin Region"
+                infoLabel.text = adminRegion
+                cityInfoRow+=1;
+                return cell
+            } else {
+                cityInfoRow+=1;
+            }
+        }
+        if cityInfoRow == 3 {
+            if let country = locations[0].country{
+                Row.text = "Country"
+                infoLabel.text = country
+                cityInfoRow+=1;
+                return cell
+            } else {
+                cityInfoRow+=1;
+            }
+        }
+        if cityInfoRow == 4 {
+            if let index = locations[0].index{
+                Row.text = "Postal Code"
+                infoLabel.text = index
+                cityInfoRow+=1;
+                return cell
+            } else {
+                cityInfoRow+=1;
+            }
+        }
+        if cityInfoRow == 5 {
+            if let coordinates = locations[0].coordinates{
+                Row.text = "Coordinates"
+                infoLabel.text = "la:\(coordinates.latitude), lo:\(coordinates.longitude)"
+                return cell
+            }
+        }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        hideCities(UITapGestureRecognizer())
-        guard let coordinate = locations[indexPath.row].coordinates else {
-            return
-        }
-        let previousAnnotations = self.mapView.annotations
-        if !previousAnnotations.isEmpty{
-          self.mapView.removeAnnotation(previousAnnotations[0])
-        }
-        let pin = MKPointAnnotation()
-        pin.coordinate = coordinate
-        mapView.addAnnotation(pin)
-        mapView.setRegion(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)), animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        hideCities(UITapGestureRecognizer())
+//        guard let coordinate = locations[indexPath.row].coordinates else {
+//            return
+//        }
+//        let previousAnnotations = self.mapView.annotations
+//        if !previousAnnotations.isEmpty{
+//          self.mapView.removeAnnotation(previousAnnotations[0])
+//        }
+//        let pin = MKPointAnnotation()
+//        pin.coordinate = coordinate
+//        mapView.addAnnotation(pin)
+//        mapView.setRegion(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)), animated: true)
+//    }
     
     
 }

@@ -9,8 +9,13 @@ import Foundation
 import CoreLocation
 
 struct Location{
-    let title: String
+    let city: String?
     let coordinates: CLLocationCoordinate2D?
+    let rows: Int
+    let country: String?
+    let adminRegion: String?
+    let subAdminRegion: String?
+    let index: String?
 }
 
 class LocationManager: NSObject{
@@ -26,20 +31,34 @@ class LocationManager: NSObject{
             }
             let models: [Location] = places.compactMap({ place in
                 var name = ""
+                var row = 1
                 if let locationName = place.name {
                     name += locationName
-                }
-                if let adminRegion = place.administrativeArea {
-                    name += ", \(adminRegion)"
-                }
-                if let locality = place.locality {
-                    name += ", \(locality)"
+                    row += 1
                 }
                 if let country = place.country {
                     name += ", \(country)"
+                    row += 1
                 }
-                print("\n \(place)")
-                let result = Location(title: name, coordinates: place.location?.coordinate)
+                if let adminRegion = place.administrativeArea {
+                    name += ", \(adminRegion)"
+                    row += 1
+                }
+                if let subAdminRegion = place.subAdministrativeArea {
+                    name += ", \(subAdminRegion)"
+                    row += 1
+                }
+                if let index = place.postalCode {
+                    name += ", \(index)"
+                    row += 1
+                }
+                let result = Location(city: place.name,
+                                      coordinates: place.location?.coordinate,
+                                      rows: row,
+                                      country: place.country,
+                                      adminRegion: place.administrativeArea,
+                                      subAdminRegion: place.subAdministrativeArea,
+                                      index: place.postalCode)
                 return result
             })
             completion(models)
